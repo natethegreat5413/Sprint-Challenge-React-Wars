@@ -1,22 +1,28 @@
-import React, {useState, useEffect } from 'react'
-import axios from 'axios';
-import Cards from './Card';
+import React from 'react';
+import { Card, CardHeader, CardBody,
+     CardText } from 'reactstrap';
 
-// Write your Character component here
-const CharacterCards = () => {
-  const [characters, setCharacters] = useState([]);
+const Cards = (props) => {
+  
+  return (
+     <Card>
+       <CardBody>
+        <CardHeader>{props.name}</CardHeader>
+        <CardText>{props.height}</CardText>
+        <CardText>{props.mass}</CardText>
+        <CardText>{props.hairColor}</CardText>
+        <CardText>{props.eyeColor}</CardText>
+        <CardText>{props.birthYear}</CardText>
+        <CardText>{props.gender}</CardText>
+      </CardBody>
+    </Card>
 
-  useEffect(() => {
-    axios.get('https://swapi.py4e.com/api/people')
-    .then(res => {
-      setCharacters(res.data)
-      debugger
-    })
-    .catch(err => {
-      console.log('error', err);
-    });
-  }, []);
-}
+    );
+    };
+
+
+    
+export default Cards;
 
 
 

@@ -1,22 +1,29 @@
-import React from 'react';
-import { Card, Button, CardHeader, CardFooter, CardBody,
-     CardText } from 'reactstrap';
+import React, {useState, useEffect } from 'react'
+import axios from 'axios';
+import Cards from './Characters';
 
-const Cards = (props) => {
-  
-  return (
-     <Card>
-       <CardBody>
-        <CardHeader>{props.name}</CardHeader>
-        <CardText>{props.height}</CardText>
-        <CardText>{props.mass}</CardText>
-        <CardText>{props.hairColor}</CardText>
-        <CardText>{props.eyeColor}</CardText>
-        <CardText>{props.birthYear}</CardText>
-        <CardText>{props.gender}</CardText>
-      </CardBody>
-    </Card>
+// Write your Character component here
+const CharacterCards = () => {
+  const [characters, setCharacters] = useState([]);
 
-    );
-    };
-export default Cards;
+  useEffect(() => {
+    axios.get('https://rickandmortyapi.com/api/character')
+    .then(res => {
+      setCharacters(res.data)
+    })
+    .catch(err => {
+      console.log('error', err);
+    });
+  }, []);
+}
+
+return(
+
+  characters.map(characters => {
+    console.log(characters)
+  })
+)
+
+
+export default CharacterCards
+
