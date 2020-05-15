@@ -24,12 +24,12 @@ const Character = () => {
         <div className='starwars'>
             {characters.map(character => {
                 return <Cards 
-                    name={}
-                    height={}
-                    hairColor={}
-                    eyeColor={}
-                    gender={}
-                    birthYear={}
+                    name={character.name}
+                    height={character.height}
+                    hairColor={character.hair_color}
+                    eyeColor={character.eye_color}
+                    gender={character.gender}
+                    birthYear={character.birth_year}
                 />
             })}
             
