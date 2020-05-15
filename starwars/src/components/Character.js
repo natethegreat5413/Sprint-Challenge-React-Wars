@@ -27,7 +27,9 @@ const Character = () => {
         <Container>
         <Row>
             {characters.map(character => {
+                
                 return <Cards 
+                   
                     name={character.name}
                     height={character.height}
                     hairColor={character.hair_color}
