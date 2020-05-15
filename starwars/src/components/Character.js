@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Cards from './Card'
+import { Container, Row } from "reactstrap";
 
 const Character = () => {
 
@@ -12,7 +13,7 @@ const Character = () => {
 
         .then(res => {
             setCharacters(res.data.results)
-            console.log(characters)
+            
         })
         .catch(error => {
             console.log('There was an error', error)
@@ -21,7 +22,10 @@ const Character = () => {
     }, [])
 
     return (
-        <div className='starwars'>
+        
+    <div className='starwars'>
+        <Container>
+        <Row>
             {characters.map(character => {
                 return <Cards 
                     name={character.name}
@@ -30,11 +34,12 @@ const Character = () => {
                     eyeColor={character.eye_color}
                     gender={character.gender}
                     birthYear={character.birth_year}
-                />
+                    />
             })}
-            
-
-        </div>
+        </Row>
+        </Container>
+                </div>
+           
     )
 }
 

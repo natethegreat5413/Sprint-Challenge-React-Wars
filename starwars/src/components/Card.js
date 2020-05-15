@@ -4,22 +4,27 @@ import {
     CardHeader,
     CardText,
     CardBody,
-    CardSubtitle,
-    Badge,
-    Col,
-    Spinner
+    CardColumns,
+    CardDeck,
+    Col
   } from "reactstrap";
 
   const Cards = ({name, height, hairColor, eyeColor, gender, birthYear}) => {
       return (
-        <div className="details">
-            <h2>{name}</h2>
-            <p>{height}</p>
-            <p>{hairColor}</p>
-            <p>{eyeColor}</p>
-            <p>{gender}</p>
-            <p>{birthYear}</p>
-        </div>
+        <Col xs="6">
+            <Card body inverse color="info" className="details">
+                <CardHeader >
+                <h2>{name}</h2>
+                </CardHeader>
+                    <CardBody>
+                        <CardText>Height: {height}</CardText>
+                        <CardText>Hair Color: {hairColor}</CardText>
+                        <CardText>Eye Color: {eyeColor}</CardText>
+                        <CardText>Gender: {gender}</CardText>
+                        <CardText>Birth Year: {birthYear}</CardText>
+                    </CardBody>
+            </Card>
+        </Col>
       )
   }
 
